@@ -8,6 +8,7 @@ on:
 
 jobs:
   on-requested:
+    runs-on: ubuntu-latest
     steps:
       - name: send telegram message on push
         uses: appleboy/telegram-action@master
