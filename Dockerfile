@@ -12,7 +12,7 @@ ENV APP_NAME koogle-api-server
 ENV APP_VERSION 1.0.0
 ENV WHATAP_CONF ${WHATAP_CONF}
 
-COPY --from=0 /app/$REPO_NAME/target/$APP_NAME-$APP_VERSION.jar /deploy/$APP_NAME-$APP_VERSION.jar
+COPY --from=0 /app/target/$APP_NAME-$APP_VERSION.jar /deploy/$APP_NAME-$APP_VERSION.jar
 
 RUN mkdir -p /whatap
 COPY --from=whatap/kube_mon /data/agent/micro/whatap.agent-*.jar /whatap
