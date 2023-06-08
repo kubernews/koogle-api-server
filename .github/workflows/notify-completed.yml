@@ -17,10 +17,11 @@ jobs:
           to: ${{ secrets.TELE_BOT_CHANNEL }}
           token: ${{ secrets.TELE_BOT_TOKEN }}
           message: |
-            빌드가 성공했습니다...
-            Commit message: ${{ github.event.commits[0].message }}
+            빌드가 성공했습니다!
+            Commit message: ${{github.event.head_commit.message}}
             Repository: ${{ github.repository }}
             See changes: https://github.com/${{ github.repository }}/commit/${{github.sha}}
+            Author: [${{github.event.head_commit.author.name}}](https://github.com/${{github.actor}})
   on-failure:
     runs-on: ubuntu-latest
     if: ${{ github.event.workflow_run.conclusion == 'failure' }}
@@ -32,6 +33,7 @@ jobs:
           token: ${{ secrets.TELE_BOT_TOKEN }}
           message: |
             빌드가 실패했습니다...
-            Commit message: ${{ github.event.commits[0].message }}
+            Commit message: ${{github.event.head_commit.message}}
             Repository: ${{ github.repository }}
             See changes: https://github.com/${{ github.repository }}/commit/${{github.sha}}
+            Author: [${{github.event.head_commit.author.name}}](https://github.com/${{github.actor}})
