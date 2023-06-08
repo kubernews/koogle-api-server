@@ -2,7 +2,7 @@ name: notify requested
 
 on:
   workflow_run:
-    workflows: [maven]
+    workflows: [ci]
     types:
       - requested
 

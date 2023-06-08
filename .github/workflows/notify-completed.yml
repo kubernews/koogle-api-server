@@ -2,7 +2,7 @@ name: notify completed
 
 on:
   workflow_run:
-    workflows: [maven]
+    workflows: [ci]
     types:
       - completed
 
