@@ -13,8 +13,8 @@ jobs:
       - name: send telegram message on push
         uses: appleboy/telegram-action@master
         with:
-          to: ${{ secrets.TELEGRAM_TO }}
-          token: ${{ secrets.TELEGRAM_TOKEN }}
+          to: ${{ secrets.TELE_BOT_CHANNEL }}
+          token: ${{ secrets.TELE_BOT_TOKEN }}
           message: |
             빌드가 시작되었습니다.
             Commit message: ${{ github.event.commits[0].message }}
