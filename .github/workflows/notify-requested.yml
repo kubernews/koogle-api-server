@@ -16,7 +16,7 @@ jobs:
           to: ${{ secrets.TELE_BOT_CHANNEL }}
           token: ${{ secrets.TELE_BOT_TOKEN }}
           message: |
-            빌드가 시작되었습니다.
+            빌드가 [시작] 되었습니다.
             Commit message: ${{github.event.head_commit.message}}
             Repository: ${{ github.repository }}
             See changes: https://github.com/${{ github.repository }}/commit/${{github.sha}}
