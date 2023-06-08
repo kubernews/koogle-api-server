@@ -17,9 +17,5 @@ jobs:
           token: ${{ secrets.TELE_BOT_TOKEN }}
           message: |
             [${{ github.repository }}] 빌드가 [시작] 되었습니다.
-            Commit: $COMMIT_MSG
             See changes: https://github.com/${{ github.repository }}/commit/${{github.sha}}
-            Author: $AUTHOR_NAME https://github.com/${{github.actor}}
-        env:
-          COMMIT_MSG: ${{github.event.head_commit.message}}
-          AUTHOR_NAME: ${{github.event.head_commit.author.name}}
+            Author: https://github.com/${{github.actor}}
