@@ -1,0 +1,18 @@
+name: notify requested
+workflow_run:
+  workflows: [ci]
+  types:
+    - requested
+jobs:
+  on-requested:
+    steps:
+      - name: send telegram message on push
+        uses: appleboy/telegram-action@master
+        with:
+          to: ${{ secrets.TELEGRAM_TO }}
+          token: ${{ secrets.TELEGRAM_TOKEN }}
+          message: |
+            빌드가 시작되었습니다.
+            Commit message: ${{ github.event.commits[0].message }}
+            Repository: ${{ github.repository }}
+            See changes: https://github.com/${{ github.repository }}/commit/${{github.sha}}
