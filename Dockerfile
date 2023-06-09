@@ -19,8 +19,7 @@ COPY --from=whatap/kube_mon /data/agent/micro/whatap.agent-*.jar /whatap
 
 RUN echo -e "${WHATAP_CONF}\n\
 whatap.server.host=15.165.146.117\n\
-whatap_micro_enabled=true\n"\
->/whatap/whatap.conf
+whatap_micro_enabled=true">/whatap/whatap.conf
 
 ENV SPRING_OPTION=""
 ENTRYPOINT exec java -javaagent:/whatap/whatap.agent-2.2.7.jar -Dwhatap.micro.enabled=true -jar ${SPRING_OPTION} $APP_NAME-$APP_VERSION.jar
