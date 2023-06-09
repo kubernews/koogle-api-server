@@ -18,12 +18,12 @@ spec:
       labels:
         app: koogle-api
     spec:
-      imagePullPolicy: Always
       imagePullSecrets:
         - name: regcred
       containers:
       - name: koogle-api
         image: workirostub/koogle:api-server
+        imagePullPolicy: Always
         env:
           - name: NODE_IP
             valueFrom: { fieldRef: { fieldPath: status.hostIP } }
