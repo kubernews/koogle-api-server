@@ -9,11 +9,14 @@ metadata:
   name: koogle-deploy
   namespace: koogle
 spec:
+  replicas: 1
   selector:
     matchLabels:
       app: koogle-api
-  replicas: 1
   template:
+    metadata:
+      labels:
+        app: koogle-api
     spec:
       containers:
       - name: koogle-api
