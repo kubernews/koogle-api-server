@@ -19,7 +19,7 @@ jobs:
           message: |
             [${{ github.repository }}] 빌드가 [성공] 했습니다!
             See changes: https://github.com/${{ github.repository }}/commit/${{github.sha}}
-            Author: $AUTHOR_NAME https://github.com/${{github.actor}}
+            Author: https://github.com/${{github.actor}}
   on-failure:
     runs-on: ubuntu-latest
     if: ${{ github.event.workflow_run.conclusion == 'failure' }}
