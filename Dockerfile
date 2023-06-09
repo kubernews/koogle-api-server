@@ -23,4 +23,4 @@ RUN RUN echo -e "${WHATAP_CONF}\n\
     >/whatap/whatap.conf
 
 ENV SPRING_OPTION=""
-ENTRYPOINT exec java -javaagent:/whatap/whatap.agent-2.2.3.jar -Dwhatap.micro.enabled=true -jar ${SPRING_OPTION} $APP_NAME-$APP_VERSION.jar
+ENTRYPOINT exec java -javaagent:/whatap/whatap.agent-2.2.7.jar -Dwhatap.micro.enabled=true -jar ${SPRING_OPTION} $APP_NAME-$APP_VERSION.jar
