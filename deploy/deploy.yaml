@@ -18,10 +18,21 @@ spec:
       labels:
         app: koogle-api
     spec:
+      imagePullSecrets:
+        - name: regcred
       containers:
       - name: koogle-api
         image: workirostub/koogle:api-server
+        env:
+          - name: NODE_IP
+            valueFrom: { fieldRef: { fieldPath: status.hostIP } }
+          - name: NODE_NAME
+            valueFrom: { fieldRef: { fieldPath: spec.nodeName } }
+          - name: POD_NAME
+            valueFrom: { fieldRef: { fieldPath: metadata.name } }
+          - name: OKIND
+            value: koogle
         ports:
         - containerPort: 8080
-      imagePullSecrets:
-        - name: regcred
+
+
