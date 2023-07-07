@@ -15,7 +15,8 @@ ENV WHATAP_CONF ${WHATAP_CONF}
 COPY --from=0 /app/target/$APP_NAME-$APP_VERSION.jar /deploy/$APP_NAME-$APP_VERSION.jar
 
 RUN mkdir -p /whatap
-COPY --from=whatap/kube_mon /data/agent/micro/whatap.agent-2.2.8.jar /whatap
+COPY --from=whatap/kube_mon /data/agent/micro/whatap.agent-*.jar /whatap
+RUN ls /whatap
 
 RUN echo -e "${WHATAP_CONF}\n\
 whatap.server.host=15.165.146.117\n\
