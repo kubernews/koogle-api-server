@@ -35,5 +35,3 @@ spec:
             value: koogle
         ports:
         - containerPort: 8080
-
-
