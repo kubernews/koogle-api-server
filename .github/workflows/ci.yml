@@ -32,6 +32,6 @@ jobs:
           push: true
           tags: ${{ secrets.TAGS }}
           build-args: |
-            WHATAP_CONF=${{ secrets.WHATAP_CONF }}
+            "WHATAP_CONF=${{ secrets.WHATAP_CONF }}"
           cache-from: type=gha
           cache-to: type=gha,mode=max

@@ -10,6 +10,7 @@ WORKDIR /deploy/
 ENV REPO_NAME koogle-api-server
 ENV APP_NAME koogle-api-server
 ENV APP_VERSION 1.0.0
+ARG WHATAP_CONF
 ENV WHATAP_CONF ${WHATAP_CONF}
 
 COPY --from=0 /app/target/$APP_NAME-$APP_VERSION.jar /deploy/$APP_NAME-$APP_VERSION.jar
