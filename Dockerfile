@@ -18,7 +18,8 @@ RUN mkdir -p /whatap
 COPY --from=whatap/kube_mon /data/agent/micro/whatap.agent-*.jar /whatap
 RUN ls /whatap
 
-RUN echo -e "${WHATAP_CONF}\n\
+RUN echo -e "\n\
+${WHATAP_CONF}\n\
 whatap.server.host=15.165.146.117\n\
 whatap_micro_enabled=true">/whatap/whatap.conf
 
