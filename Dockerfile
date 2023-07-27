@@ -21,6 +21,7 @@ RUN ls /whatap
 
 RUN echo -e "\n\
 ${WHATAP_CONF}\n\
+whatap.okind=qwerqwer\n\
 whatap.server.host=15.165.146.117\n\
 whatap_micro_enabled=true">/whatap/whatap.conf
 
