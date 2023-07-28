@@ -26,4 +26,4 @@ whatap.server.host=15.165.146.117\n\
 whatap_micro_enabled=true">/whatap/whatap.conf
 
 ENV SPRING_OPTION=""
-ENTRYPOINT exec java -javaagent:/whatap/whatap.agent-2.2.9.jar -Dwhatap.micro.enabled=true -jar ${SPRING_OPTION} $APP_NAME-$APP_VERSION.jar
+ENTRYPOINT exec java -javaagent:/whatap/whatap.agent-2.2.12.jar -Dwhatap.micro.enabled=true -jar ${SPRING_OPTION} $APP_NAME-$APP_VERSION.jar
