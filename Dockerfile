@@ -7,6 +7,9 @@ RUN ./mvnw clean package -DskipTests
 FROM adoptopenjdk/openjdk11
 WORKDIR /deploy/
 
+ENV APP_NAME koogle-api-server
+ENV APP_VERSION 1.0.0
+
 COPY --from=0 /app/target/$APP_NAME-$APP_VERSION.jar /deploy/$APP_NAME-$APP_VERSION.jar
 
 RUN mkdir -p /whatap
@@ -21,10 +24,6 @@ ${WHATAP_CONF}\n\
 whatap.okind=qwerqwer\n\
 whatap.server.host=15.165.146.117\n\
 whatap_micro_enabled=true">/whatap/whatap.conf
-
-ENV REPO_NAME koogle-api-server
-ENV APP_NAME koogle-api-server
-ENV APP_VERSION 1.0.0
 
 ARG SPRING_OPTION
 ENV SPRING_OPTION=${SPRING_OPTION}
