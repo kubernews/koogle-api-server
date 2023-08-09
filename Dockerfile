@@ -25,6 +25,7 @@ whatap.okind=qwerqwer\n\
 whatap.server.host=15.165.146.117\n\
 logsink_rt_enabled=true\n\
 logsink_enabled=true\n\
+hook_service_patterns=com.kubenews.koogleapiserver.VirtualScheduler.virtualRead\n\
 whatap_micro_enabled=true">/whatap/whatap.conf
 
 ARG SPRING_OPTION
