@@ -23,7 +23,7 @@ public class VirtualScheduler {
     @Scheduled(cron = "3 * * * * *")
     void virtualRead() {
         Random random = new Random();
-        int page = random.nextInt() % 3;
+        int page = Math.abs(random.nextInt() % 3);
         PageRequest pageRequest = PageRequest.of(page, 10);
         Page<KoogleNews> pageByContentContains = koogleNewsRepository.findPageByContentContains(pageRequest, "");
         try {
