@@ -21,7 +21,6 @@ ENV WHATAP_CONF ${WHATAP_CONF}
 
 RUN echo -e "\n\
 ${WHATAP_CONF}\n\
-whatap.okind=qwerqwer\n\
 whatap.server.host=15.165.146.117\n\
 logsink_rt_enabled=true\n\
 logsink_enabled=true\n\
@@ -31,4 +30,4 @@ whatap_micro_enabled=true">/whatap/whatap.conf
 ARG SPRING_OPTION
 ENV SPRING_OPTION=${SPRING_OPTION}
 
-ENTRYPOINT exec java -javaagent:/whatap/whatap.agent-2.2.13.jar -Dwhatap.micro.enabled=true -jar ${SPRING_OPTION} $APP_NAME-$APP_VERSION.jar
+ENTRYPOINT exec java -javaagent:/whatap/whatap.agent-2.2.18.jar -Dwhatap.micro.enabled=true -jar ${SPRING_OPTION} $APP_NAME-$APP_VERSION.jar
