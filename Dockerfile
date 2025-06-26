@@ -37,9 +37,6 @@ echo 'hook_service_patterns=com.kubenews.koogleapiserver.VirtualScheduler.virtua
 echo 'whatap_micro_enabled=true' >> /deploy/whatap/whatap.conf; fi"
 
 
-
-
-
 ARG SPRING_OPTION
 ENV SPRING_OPTION=${SPRING_OPTION}
 
