@@ -7,8 +7,11 @@ RUN ./mvnw clean package -DskipTests
 FROM adoptopenjdk/openjdk11
 WORKDIR /deploy/
 
-ENV APP_NAME koogle-api-server
-ENV APP_VERSION 1.0.0
+RUN apt-get update && apt-get install -y wget curl && rm -rf /var/lib/apt/lists/*
+
+
+ENV APP_NAME=koogle-api-server
+ENV APP_VERSION=1.0.0
 
 COPY --from=0 /app/target/$APP_NAME-$APP_VERSION.jar /deploy/$APP_NAME-$APP_VERSION.jar
 
@@ -23,14 +26,19 @@ RUN cd whatap &&  \
     rm whatap.conf
 
 ARG WHATAP_CONF
-ENV WHATAP_CONF ${WHATAP_CONF}
+ENV WHATAP_CONF=${WHATAP_CONF}
 
-RUN echo -e "\n\
-${WHATAP_CONF}\n\
-logsink_rt_enabled=true\n\
-logsink_enabled=true\n\
-hook_service_patterns=com.kubenews.koogleapiserver.VirtualScheduler.virtualRead\n\
-whatap_micro_enabled=true">/whatap/whatap.conf
+RUN mkdir -p /deploy/whatap && \
+    bash -c "if [ ! -f /deploy/whatap/whatap.conf ]; then \
+echo \"\$WHATAP_CONF\" > /deploy/whatap/whatap.conf && \
+echo 'logsink_rt_enabled=true' >> /deploy/whatap/whatap.conf && \
+echo 'logsink_enabled=true' >> /deploy/whatap/whatap.conf && \
+echo 'hook_service_patterns=com.kubenews.koogleapiserver.VirtualScheduler.virtualRead' >> /deploy/whatap/whatap.conf && \
+echo 'whatap_micro_enabled=true' >> /deploy/whatap/whatap.conf; fi"
+
+
+
+
 
 ARG SPRING_OPTION
 ENV SPRING_OPTION=${SPRING_OPTION}
